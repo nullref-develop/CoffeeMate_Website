@@ -1,3 +1,4 @@
+/* Базовая настройка */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ body {
   line-height: 1.6;
 }
 
+/* -------------------- HEADER -------------------- */
 header {
   display: flex;
   justify-content: space-between;
@@ -18,6 +20,7 @@ header {
   padding: 1rem 2rem;
   background: linear-gradient(to right, #8b5e3c, #d6a75e);
   color: white;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -31,13 +34,19 @@ header {
   margin-right: 10px;
 }
 
+nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
 nav a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
+/* -------------------- HERO -------------------- */
 .hero {
   background: linear-gradient(to bottom, #f4e6d4, #fff7ec);
   padding: 4rem 2rem;
@@ -46,9 +55,18 @@ nav a {
 
 .hero-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
 }
 
 .hero-text h2 {
@@ -57,12 +75,22 @@ nav a {
 }
 
 .hero-text p {
-  max-width: 500px;
-  margin: 0 auto;
   font-size: 1.1rem;
+  max-width: 500px;
 }
 
-.hero .btn {
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  display: inline-block;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
   background: #8b5e3c;
@@ -73,25 +101,19 @@ nav a {
   transition: background 0.3s;
 }
 
-.hero .btn:hover {
+.btn:hover {
   background: #6b432c;
 }
 
-.hero-image {
-  margin-top: 2rem;
-}
-
-.hero-image img {
-  max-width: 600px;
-}
-
+/* SVG кофе */
 .svg-bg {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  opacity: 0.1;
+  opacity: 0.08;
 }
 
+/* -------------------- FEATURES -------------------- */
 .features {
   padding: 3rem 2rem;
   background: #fffaf3;
@@ -100,7 +122,7 @@ nav a {
 
 .feature-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -112,6 +134,7 @@ nav a {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
+/* -------------------- DOWNLOAD -------------------- */
 .download {
   padding: 3rem 2rem;
   background: linear-gradient(to right, #d18d42, #f3b96d);
@@ -120,22 +143,67 @@ nav a {
 }
 
 .download .btn {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
   background: #6b432c;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
 }
 
 .download .btn:hover {
   background: #4d2e1e;
 }
 
+/* -------------------- FOOTER -------------------- */
 footer {
   padding: 1rem;
   text-align: center;
   background: #2f2f2f;
   color: white;
   font-size: 0.9rem;
+}
+
+/* -------------------- MEDIA QUERIES -------------------- */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .svg-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .features {
+    padding: 2rem 1rem;
+  }
+
+  .download {
+    padding: 2rem 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
