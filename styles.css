@@ -1,209 +1,655 @@
-/* Базовая настройка */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fffdf9;
-  color: #2e2e2e;
-  line-height: 1.6;
-}
-
-/* -------------------- HEADER -------------------- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(to right, #8b5e3c, #d6a75e);
-  color: white;
-  flex-wrap: wrap;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  width: 48px;
-  height: 48px;
-  margin-right: 10px;
-}
-
-nav {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-/* -------------------- HERO -------------------- */
-.hero {
-  background: linear-gradient(to bottom, #f4e6d4, #fff7ec);
-  padding: 4rem 2rem;
-  position: relative;
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  max-width: 500px;
-}
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: #8b5e3c;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #6b432c;
-}
-
-/* SVG кофе */
-.svg-bg {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  opacity: 0.08;
-}
-
-/* -------------------- FEATURES -------------------- */
-.features {
-  padding: 3rem 2rem;
-  background: #fffaf3;
-  text-align: center;
-}
-
-.feature-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.feature {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-/* -------------------- DOWNLOAD -------------------- */
-.download {
-  padding: 3rem 2rem;
-  background: linear-gradient(to right, #d18d42, #f3b96d);
-  color: white;
-  text-align: center;
-}
-
-.download .btn {
-  background: #6b432c;
-}
-
-.download .btn:hover {
-  background: #4d2e1e;
-}
-
-/* -------------------- FOOTER -------------------- */
-footer {
-  padding: 1rem;
-  text-align: center;
-  background: #2f2f2f;
-  color: white;
-  font-size: 0.9rem;
-}
-
-/* -------------------- MEDIA QUERIES -------------------- */
-@media (max-width: 768px) {
-  .hero-content {
+/* ===========================================================
+   ПЕРЕМЕННЫЕ (КОФЕЙНАЯ ПАЛИТРА И БАЗОВЫЕ НАСТРОЙКИ)
+   =========================================================== */
+   :root {
+    --color-background-main: #f8f9fb;
+    --color-background-item: #ffffff;
+    --color-background-tabs: #ffffff;
+  
+    --color-gray-01: #e1e1e1;
+    --color-gray-02: #d3d3d3;
+    --color-gray-03: #c0c0c0;
+    --color-gray-06: #808080;
+    --color-gray-08: #474747;
+  
+    --color-header: #000000;
+  
+    --border-radius-button: 4px;
+    --border-radius-elements: 8px;
+  
+    --ion-color-primary: #9d6606;       /* основной тёплый кофейный */
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-shade: #8a5a05;
+    --ion-color-primary-tint: #a7751f;
+  
+    --ion-color-secondary: #583208;     /* более тёмный кофейный */
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-shade: #4d2c07;
+    --ion-color-secondary-tint: #694721;
+  
+    --ion-color-success: #85db14;
+    --ion-color-warning: #ead810;
+    --ion-color-danger: #eb0c0c;
+  
+    --btn-padding: 0.8rem 1.6rem;
+    --anim-duration: 0.8s;
+  }
+  
+  /* СБРОС И ОБЩИЕ СТИЛИ */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-background-main);
+    color: #2e2e2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* УТИЛИТЫ */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--ion-color-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  /* АНИМАЦИЯ ПРИ ЯВКЕ ЭЛЕМЕНТОВ */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeInUp var(--anim-duration) ease-out forwards;
+  }
+  
+  /* ===========================================================
+     HEADER (ЛИПКОЕ МЕНЮ)
+     =========================================================== */
+  .header {
+    background: linear-gradient(90deg, var(--ion-color-secondary), var(--ion-color-primary));
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo__img {
+    height: 48px;
+    width: 48px;
+    margin-right: 0.5rem;
+  }
+  
+  .logo__text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.3s;
+  }
+  
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s;
+  }
+  
+  .nav__link:hover {
+    color: #ffebc2;
+  }
+  
+  .nav__link:hover::after {
+    width: 100%;
+  }
+  
+  /* Бургер-меню (невидимо по умолчанию на десктопе) */
+  .nav-toggle {
+    display: none;
     flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-toggle__bar {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+  }
+  
+  /* ===========================================================
+     HERO
+     =========================================================== */
+  .hero {
+    position: relative;
+    background-color: var(--color-background-main);
+    padding: 8rem 0 10rem 0;
+    overflow: hidden;
+  }
+  
+  .hero__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .hero__text {
+    flex: 1;
+    min-width: 280px;
+    max-width: 550px;
+    text-align: left;
+  }
+  
+  .hero__title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--ion-color-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.15rem;
+    color: #4d4d4d;
+    margin-bottom: 2rem;
+  }
+  
+  .hero__btn {
+    display: inline-block;
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    padding: var(--btn-padding);
+    border-radius: var(--border-radius-button);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .hero__btn:hover {
+    background-color: var(--ion-color-primary-shade);
+    transform: translateY(-2px);
+  }
+  
+  .hero__image {
+    flex: 1;
+    min-width: 280px;
     text-align: center;
   }
-
-  .hero-text h2 {
+  
+  .hero__img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-elements);
+    transition: transform 0.3s;
+  }
+  
+  .hero__img:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Фоновая полупрозрачная иллюстрация кофейных зёрен */
+  .hero__bg-coffee {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 400px;
+    height: 400px;
+    background: url("coffee-bg.png") no-repeat center/contain;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  
+  /* ===========================================================
+     О ПРИЛОЖЕНИИ
+     =========================================================== */
+  .about {
+    background-color: var(--color-background-tabs);
+    padding: 4rem 0;
+  }
+  
+  .about__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+  }
+  
+  .about__text {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .about__lead {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--color-gray-08);
+  }
+  
+  .about__features-list {
+    list-style: none;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .about__features-list li {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .about__icon {
     font-size: 2rem;
+    flex-shrink: 0;
+    color: var(--ion-color-primary);
   }
-
-  .hero-text p {
-    font-size: 1rem;
+  
+  .about__feature-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--ion-color-secondary-shade);
   }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  
+  .about__features-list p {
+    font-size: 0.95rem;
+    color: var(--color-gray-06);
+    line-height: 1.4;
   }
-
-  .logo h1 {
-    font-size: 1.5rem;
+  
+  .about__why {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-gray-08);
+    line-height: 1.4;
   }
-
-  .svg-bg {
-    display: none;
+  
+  .about__footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-gray-06);
+    line-height: 1.4;
+    font-style: italic;
   }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 2rem 1rem;
+  
+  .about__image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
   }
-
+  
+  .about__img {
+    max-width: 80%;
+    height: auto;
+    border-radius: var(--border-radius-elements);
+  }
+  
+  /* ===========================================================
+     ВОЗМОЖНОСТИ
+     =========================================================== */
   .features {
-    padding: 2rem 1rem;
+    background-color: var(--color-background-main);
+    padding: 4rem 0;
   }
-
+  
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .feature-card {
+    background-color: var(--color-background-item);
+    border-radius: var(--border-radius-elements);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--ion-color-primary);
+  }
+  
+  .feature-card__title {
+    font-size: 1.25rem;
+    color: var(--ion-color-secondary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-card__desc {
+    font-size: 0.95rem;
+    color: var(--color-gray-06);
+    line-height: 1.4;
+  }
+  
+  /* ===========================================================
+     ОТЗЫВЫ
+     =========================================================== */
+  .testimonials {
+    background-color: var(--color-background-tabs);
+    padding: 4rem 0;
+  }
+  
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .testimonial-card {
+    background-color: var(--color-background-item);
+    border-radius: var(--border-radius-elements);
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .testimonial-card__text {
+    font-size: 0.95rem;
+    color: var(--color-gray-08);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  
+  .testimonial-card__author {
+    font-size: 0.9rem;
+    color: var(--ion-color-secondary-shade);
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  /* ===========================================================
+     СКАЧАТЬ
+     =========================================================== */
   .download {
-    padding: 2rem 1rem;
+    background: linear-gradient(90deg, var(--ion-color-primary), var(--ion-color-secondary));
+    color: #ffffff;
+    padding: 4rem 0;
   }
-
-  .btn {
+  
+  .download__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+  }
+  
+  .download__text {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .download__title {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  .download__desc {
+    color: #f0f0f0;
+    margin-bottom: 1rem;
+  }
+  
+  .download__list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+  
+  .download__list li {
+    position: relative;
+    padding-left: 1.5rem;
     font-size: 1rem;
-    padding: 0.6rem 1.2rem;
+    color: #f0f0f0;
   }
-}
+  
+  .download__list li::before {
+    content: '☑';
+    position: absolute;
+    left: 0;
+    color: var(--ion-color-warning);
+    font-weight: 700;
+  }
+  
+  .download__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-block;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--border-radius-button);
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .btn--primary {
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    padding: var(--btn-padding);
+  }
+  
+  .btn--primary:hover {
+    background-color: var(--ion-color-primary-shade);
+    transform: translateY(-2px);
+  }
+  
+  .btn--secondary {
+    background-color: var(--ion-color-secondary);
+    color: var(--ion-color-secondary-contrast);
+    padding: var(--btn-padding);
+  }
+  
+  .btn--secondary:hover {
+    background-color: var(--ion-color-secondary-shade);
+    transform: translateY(-2px);
+  }
+  
+  .download__image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+  }
+  
+  .download__img {
+    max-width: 80%;
+    height: auto;
+    border-radius: var(--border-radius-elements);
+  }
+  
+  /* ===========================================================
+     FOOTER
+     =========================================================== */
+  .footer {
+    background-color: var(--color-gray-02);
+    padding: 2rem 0;
+  }
+  
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .footer__copyright {
+    color: var(--color-gray-08);
+    font-size: 0.9rem;
+  }
+  
+  .footer__nav {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer__link {
+    color: var(--color-gray-06);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+  
+  .footer__link:hover {
+    color: var(--ion-color-secondary);
+  }
+  
+  /* ===========================================================
+     АДАПТИВ (Tablet / Mobile)
+     =========================================================== */
+  @media (max-width: 992px) {
+    .hero__inner,
+    .about__inner,
+    .download__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero__text,
+    .about__text,
+    .download__text {
+      max-width: 100%;
+    }
+  }
+  
+/* ==============================================
+   Мобильное меню (замена transform → display)
+   ============================================== */
+   @media (max-width: 768px) {
+    /* По умолчанию прячем навигацию полностью */
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--ion-color-secondary);
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      z-index: 200; /* чтобы не «тонуть» под содержимым */
+    }
+  
+    /* Когда добавлен класс nav--open, показываем меню */
+    .nav.nav--open {
+      display: flex;
+    }
+  
+    /* Ссылки в меню у нас остаются крупными и белыми */
+    .nav__link {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+  
+    /* Показываем кнопку-бургер на мобильном */
+    .nav-toggle {
+      display: flex;
+    }
+  
+    /* Увеличим z-index для самого header, чтобы он был «поверх» */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+  }
+  
+  
+  @media (max-width: 576px) {
+    .hero__title {
+      font-size: 2rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.7rem 1rem;
+    }
+    .download__list {
+      padding-left: 0;
+    }
+  }
+  

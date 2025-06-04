@@ -2,88 +2,268 @@
 <html lang="ru">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="robots" content="noindex, nofollow">
-	<title>PerfectCup — Делитесь вкусом кофе</title>
-	<meta name="description" content="PerfectCup - кофейное сообщество" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="noindex, nofollow" />
+	<title>PerfectCup — делимся вкусом кофе</title>
+	<meta name="description" content="PerfectCup – социальное кофейное приложение для любителей идеального напитка." />
 	<meta name="keywords" content="кофе, кофейня, сообщество, PerfectCup" />
-	<!-- icons -->
+
+	<!-- Favicon и метатеги для соцсетей -->
 	<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
 	<link rel="shortcut icon" href="/icons/favicon.ico" />
-	<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180">
-	<link rel="mask-icon" href="/icons/icon-192-maskable.png" color="#583208">
-	<meta name="theme-color" content="#583208">
-	<!-- share meta -->
-	<meta property="og:title" content="Кофейное сообщество PerfectCup">
-	<meta property="og:type" content="article" />
+	<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180" />
+	<link rel="mask-icon" href="/icons/icon-192-maskable.png" color="#583208" />
+	<meta name="theme-color" content="#f8f9fb" />
+
+	<meta property="og:title" content="PerfectCup — идеальный кофе с друзьями" />
 	<meta property="og:description"
-		content="Присоединяйся ко мне в кофейном сообществе PerfectCup. Будет делиться мнениями о кофе и кофейнях в городе!">
-	<meta property="og:image" content="/images/social.jpg">
-	<meta name="twitter:card" content="summary_large_image">
-	<!-- styles -->
-	<link rel="stylesheet" href="styles.css">
+		content="Присоединяйтесь к PerfectCup: оценивайте кофе, следите за трендами и делитесь впечатлениями с друзьями." />
+	<meta property="og:image" content="/images/social.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<!-- Шрифт Roboto -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+	<!-- Стили -->
+	<link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-	<header>
-		<div class="logo">
-			<img src="logo.svg" alt="PerfectCup Логотип">
-			<h1>PerfectCup</h1>
+	<!-- ================= HEADER ================= -->
+	<header class="header">
+		<div class="container header__inner">
+			<a href="#" class="logo">
+				<img src="logo.svg" alt="PerfectCup Логотип" class="logo__img" />
+				<h1 class="logo__text">PerfectCup</h1>
+			</a>
+			<nav class="nav">
+				<a href="#about" class="nav__link">О приложении</a>
+				<a href="#features" class="nav__link">Возможности</a>
+				<a href="#download" class="nav__link">Скачать</a>
+			</nav>
+			<button class="nav-toggle" aria-label="Открыть меню">
+				<span class="nav-toggle__bar"></span>
+				<span class="nav-toggle__bar"></span>
+				<span class="nav-toggle__bar"></span>
+			</button>
 		</div>
-		<nav>
-			<a href="#features">Возможности</a>
-			<a href="#download">Скачать</a>
-		</nav>
 	</header>
 
-	<section class="hero">
-		<div class="hero-content">
-			<div class="hero-text">
-				<h2>Твой идеальный кофе — теперь с друзьями</h2>
-				<div class="hero-image">
-					<img src="mockup.png" alt="Мокап приложения">
+	<!-- ================= HERO ================= -->
+	<section class="hero" id="hero">
+		<div class="container hero__inner">
+			<div class="hero__text animate-fade-in">
+				<h2 class="hero__title">Ваш идеальный кофе — теперь с друзьями</h2>
+				<p class="hero__subtitle">
+					Хочешь не просто пить кофе, а запоминать вкусы, обсуждать сорта и делиться впечатлениями?
+					Тогда тебе в PerfectCup — первое социальное приложение для любителей настоящего кофе.
+				</p>
+				<a href="https://app.yourperfectcup.ru/" class="btn btn--primary hero__btn">Скачать бесплатно</a>
+			</div>
+			<div class="hero__image animate-fade-in" style="animation-delay: 0.3s;">
+				<img src="mockup.png" alt="Мокап приложения PerfectCup" class="hero__img" />
+			</div>
+		</div>
+		<div class="hero__bg-coffee"></div>
+	</section>
+
+	<!-- ================= О ПРИЛОЖЕНИИ ================= -->
+	<section class="about" id="about">
+		<div class="container about__inner">
+			<div class="about__text animate-fade-in" style="animation-delay: 0.2s;">
+				<h3 class="section-title">Что такое PerfectCup?</h3>
+				<p class="about__lead">
+					☕ <strong>PerfectCup</strong> — приложение для любителей кофе. Здесь вы можете :
+				</p>
+
+
+				<p class="about__why">
+					<strong>Почему стоит попробовать PerfectCup:</strong><br />
+					✔ Удобный интерфейс<br />
+					✔ Сообщество кофейных энтузиастов<br />
+					✔ Постоянные обновления и развитие<br />
+					✔ Подходит для любителей specialty, капучино, латте, фильтра и других видов кофе
+				</p>
+
+				<p class="about__footer">
+					<em>
+						PerfectCup — это не просто оценка кофе, а способ сохранять важные вкусовые воспоминания,
+						расширять кофейные горизонты и общаться с теми, кто любит кофе так же, как и вы.
+					</em>
+				</p>
+			</div>
+			<div class="about__image animate-fade-in" style="animation-delay: 0.4s;">
+				<img src="feature-illustration.png" alt="Что такое PerfectCup? — иллюстрация" class="about__img" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ================= ВОЗМОЖНОСТИ ================= -->
+	<section class="features" id="features">
+		<div class="container">
+			<h3 class="section-title animate-fade-in">Ключевые возможности</h3>
+			<div class="features__grid">
+				<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+					<div class="feature-card__icon">📸</div>
+					<h4 class="feature-card__title">Фото и отзывы</h4>
+					<p class="feature-card__desc">
+						Фотографируйте кофе, оставляйте развёрнутые отзывы и оценивайте напитки по пятибалльной шкале.
+					</p>
 				</div>
-				<p>Делитесь мнением, открывайте новые вкусы и находите любимые напитки вместе.</p>
-				<br />
-				<a href="#download" class="btn">Попробовать бесплатно</a>
+				<div class="feature-card animate-fade-in" style="animation-delay: 0.4s;">
+					<div class="feature-card__icon">👥</div>
+					<h4 class="feature-card__title">Лента друзей</h4>
+					<p class="feature-card__desc">
+						Подпишитесь на друзей, следите, какие кофейни они посещают, какие напитки пробуют и рекомендуют.
+					</p>
+				</div>
+				<div class="feature-card animate-fade-in" style="animation-delay: 0.6s;">
+					<div class="feature-card__icon">💬</div>
+					<h4 class="feature-card__title">Обсуждения</h4>
+					<p class="feature-card__desc">
+						Комментируйте отзывы, ставьте лайки и участвуйте в обсуждениях, находите единомышленников.
+					</p>
+				</div>
+				<div class="feature-card animate-fade-in" style="animation-delay: 0.8s;">
+					<div class="feature-card__icon">🏆</div>
+					<h4 class="feature-card__title">Достижения</h4>
+					<p class="feature-card__desc">
+						Зарабатывайте награды за активность: чекины, новые вкусы и приглашение друзей.
+					</p>
+				</div>
+				<div class="feature-card animate-fade-in" style="animation-delay: 1s;">
+					<div class="feature-card__icon">📊</div>
+					<h4 class="feature-card__title">Статистика</h4>
+					<p class="feature-card__desc">
+						Смотрите, сколько чашек кофе вы выпили, какой сорт выбираете чаще и какие награды получили.
+					</p>
+				</div>
+				<div class="feature-card animate-fade-in" style="animation-delay: 1.2s;">
+					<div class="feature-card__icon">🔔</div>
+					<h4 class="feature-card__title">Уведомления</h4>
+					<p class="feature-card__desc">
+						Узнавайте, когда вам оставили комментарий, поставили лайк или пригласили на кофе.
+					</p>
+				</div>
+				<!-- Новая возможность #1 -->
+				<div class="feature-card animate-fade-in" style="animation-delay: 1.4s;">
+					<div class="feature-card__icon">🔍</div>
+					<h4 class="feature-card__title">Поиск кофеен</h4>
+					<p class="feature-card__desc">
+						Находите кофейни в вашем городе, фильтруя по рейтингу, локации и типу напитков.
+					</p>
+				</div>
+				<!-- Новая возможность #2 -->
+				<div class="feature-card animate-fade-in" style="animation-delay: 1.6s;">
+					<div class="feature-card__icon">🤖</div>
+					<h4 class="feature-card__title">Умные рекомендации</h4>
+					<p class="feature-card__desc">
+						Получайте персональные советы по новым сортам и напиткам на основе ваших оценок и предпочтений.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="features" class="features">
-		<h3>Что умеет PerfectCup?</h3>
-		<div class="feature-list">
-			<div class="feature">
-				<h4>👅 Вкусовая оценка</h4>
-				<p>Аромат, крепость и послевкусие — выбирай лучшее!</p>
-			</div>
-			<div class="feature">
-				<h4>👥 Сообщество</h4>
-				<p>Читай отзывы друзей и экспертов, делись своими находками.</p>
-			</div>
-			<div class="feature">
-				<h4>📈 Тренды кофе</h4>
-				<p>Смотри, что сейчас популярно в твоём городе.</p>
-			</div>
-			<div class="feature">
-				<h4>📷 Сканирование</h4>
-				<p>Сканируй штрихкод и получай информацию о напитке мгновенно.</p>
+
+	<!-- ================= ОТЗЫВЫ ================= -->
+	<section class="testimonials">
+		<div class="container">
+			<h3 class="section-title animate-fade-in">Отзывы пользователей</h3>
+			<div class="testimonials__grid">
+				<div class="testimonial-card animate-fade-in" style="animation-delay: 0.4s;">
+					<p class="testimonial-card__text">
+						«Обожаю возможность вести личный кофейный дневник! Я записываю все свои любимые эспрессо и
+						капучино,
+						а потом смотрю статистику по любимым районам и кофейням.»
+					</p>
+					<div class="testimonial-card__author">— Екатерина, Тюмень</div>
+				</div>
+				<div class="testimonial-card animate-fade-in" style="animation-delay: 0.6s;">
+					<p class="testimonial-card__text">
+						«PerfectCup — отличное сообщество! Я всегда в курсе последних трендов, вижу, что пробуют мои
+						друзья,
+						и легко нахожу новые кофейни рядом. Удобно и интересно.»
+					</p>
+					<div class="testimonial-card__author">— Иван, Екатеринбург</div>
+				</div>
+				<div class="testimonial-card animate-fade-in" style="animation-delay: 0.2s;">
+					<p class="testimonial-card__text">
+						«Теперь я точно знаю, какие сорта кофе мне нравятся больше всего! Благодаря друзьям в PerfectCup
+						я открыла
+						для себя сотни новых вкусов и не пропускаю горячие рейтинги сезона.»
+					</p>
+					<div class="testimonial-card__author">— Марина, Санкт-Петербург</div>
+				</div>
+				<div class="testimonial-card animate-fade-in" style="animation-delay: 0.8s;">
+					<p class="testimonial-card__text">
+						«Приложение простое и понятное. Люблю просматривать отзывы экспертов и друзей, узнавать, что
+						сейчас модно
+						и экономить время при выборе кофе.»
+					</p>
+					<div class="testimonial-card__author">— Алексей, Новосибирск</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="download" class="download">
-		<h3>Начни кофейное путешествие</h3>
-		<p>Доступно в App Store и Google Play. Установи бесплатно и погрузись в мир вкуса.</p>
-		<br />
-		<a target="_blank" href="https://app.yourperfectcup.ru/" class="btn">Скачать сейчас</a>
+	<!-- ================= СКАЧАТЬ ================= -->
+	<section class="download" id="download">
+		<div class="container download__inner">
+			<div class="download__text animate-fade-in">
+				<h3 class="section-title download__title">Начните своё кофейное путешествие</h3>
+				<p class="download__desc">
+					Скачайте приложение прямо сейчас и получайте:
+				</p>
+				<ul class="download__list">
+					<li>Возможность вести личный кофейный дневник</li>
+					<li>Подписываться на рейтинги друзей и экспертов</li>
+					<li>Статистику по употреблённым чашкам и вашим любимым сортам</li>
+					<li>Уведомления о комментариях, лайках и приглашениях</li>
+				</ul>
+				<a href="https://app.yourperfectcup.ru/" class="btn btn--secondary">Скачать в App Store / Google
+					Play</a>
+			</div>
+			<div class="download__image animate-fade-in" style="animation-delay: 0.3s;">
+				<img src="download-illustration.png" alt="Начните своё кофейное путешествие — иллюстрация"
+					class="download__img" />
+			</div>
+		</div>
 	</section>
 
-	<footer>
-		<p>&copy; 2025 PerfectCup. Все права защищены.</p>
+	<!-- ================= FOOTER ================= -->
+	<footer class="footer">
+		<div class="container footer__inner">
+			<div class="footer__copyright">
+				&copy; 2025 PerfectCup. Все права защищены.
+			</div>
+			<nav class="footer__nav">
+				<a href="#hero" class="footer__link">Домой</a>
+				<a href="#about" class="footer__link">О приложении</a>
+				<a href="#features" class="footer__link">Возможности</a>
+				<a href="#download" class="footer__link">Скачать</a>
+			</nav>
+		</div>
 	</footer>
+
+	<!-- =============== JS для мобильного меню =============== -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const toggle = document.querySelector('.nav-toggle')
+			const nav = document.querySelector('.nav')
+
+			if (!toggle || !nav) return
+
+			toggle.addEventListener('click', () => {
+				nav.classList.toggle('nav--open')
+			})
+		});
+	</script>
+
 </body>
 
 </html>
