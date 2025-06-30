@@ -538,6 +538,10 @@
     height: auto;
     border-radius: var(--border-radius-elements);
   }
+
+  .policy__list {
+    margin-left: 2rem;
+  }
   
   /* ===========================================================
      FOOTER
