@@ -30,6 +30,13 @@
 
     --anim-fast: 0.15s;
     --anim-base: 0.3s;
+
+    /* Текст */
+    --text-xs: clamp(0.85rem, 1.1vw, 0.9rem);
+    --text-sm: clamp(0.9rem, 1.2vw, 1rem);
+    --text-md: clamp(1rem, 1.5vw, 1.15rem);
+    --text-lg: clamp(1.5rem, 3vw, 2rem);
+    --text-xl: clamp(2.2rem, 4.5vw, 3rem);
   }
   
   /* СБРОС И ОБЩИЕ СТИЛИ */
@@ -51,6 +58,7 @@
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: var(--text-sm);
   }
   
   /* УТИЛИТЫ */
@@ -61,7 +69,7 @@
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: var(--text-lg);
     font-weight: 500;
     text-align: center;
     color: var(--accent-dark);
@@ -197,15 +205,15 @@
   }
   
   .hero__title {
-    font-size: 2.75rem;
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--accent-dark);
     margin-bottom: 1rem;
   }
   
   .hero__subtitle {
-    font-size: 1.15rem;
-    color: var(--text-soft);
+    font-size: var(--text-md);
+    color: var(--text-main);
     margin-bottom: 2rem;
   }
   
@@ -277,13 +285,12 @@
   }
   
   .about__lead {
-    font-size: 1rem;
+    font-size: var(--text-sm);
     margin-bottom: 1rem;
     color: var(--text-main);
   }
   
-/* TODO не выжу код в HTML, разобраться к чему стили */
-
+/* нет в HTML 
   .about__features-list { 
     list-style: none;
     margin-top: 1rem;
@@ -295,8 +302,8 @@
   .about__features-list li {
     display: flex;
     gap: 1rem;
-  }
-  
+  } */
+
   .about__icon {
     font-size: 2rem;
     flex-shrink: 0;
@@ -309,16 +316,16 @@
     margin-bottom: 0.25rem;
     color: var(--accent-dark-hover);
   }
-  
+  /* нет в HTML 
   .about__features-list p {
-    font-size: 0.95rem;
+    font-size: var(--text-xs)
     color: var(--text-soft);
     line-height: 1.4;
-  }
+  } */
   
   .about__why {
     margin-top: 1.5rem;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--text-main);
     line-height: 1.4;
   }
@@ -379,13 +386,13 @@
   }
   
   .feature-card__title {
-    font-size: 1.25rem;
+    font-size: var(--text-md);
     color: var(--accent-dark);
     margin-bottom: 0.5rem;
   }
   
   .feature-card__desc {
-    font-size: 0.95rem;
+    font-size: var(--text-xs);
     color: var(--text-soft);
     line-height: 1.4;
   }
@@ -418,14 +425,14 @@
   }
   
   .testimonial-card__text {
-    font-size: 0.95rem;
+    font-size: var(--text-xs);
     color: var(--text-main);
     margin-bottom: 1rem;
     line-height: 1.4;
   }
   
   .testimonial-card__author {
-    font-size: 0.9rem;
+    font-size: var(--text-xs);
     color: var(--accent-dark-hover);
     font-weight: 500;
     text-align: right;
@@ -560,7 +567,7 @@
   
   .footer__copyright {
     color: var(--text-main);
-    font-size: 0.9rem;
+    font-size: var(--text-xs);
   }
   
   .footer__nav {
@@ -571,7 +578,7 @@
   .footer__link {
     color: var(--text-soft);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: var(--text-xs);
     transition: color 0.3s;
   }
   
@@ -641,12 +648,6 @@
   
   
   @media (max-width: 576px) {
-    .hero__title {
-      font-size: 2rem;
-    }
-    .section-title {
-      font-size: 1.75rem;
-    }
     .btn {
       width: 100%;
       padding: 0.7rem 1rem;
