@@ -2,37 +2,34 @@
    ПЕРЕМЕННЫЕ (КОФЕЙНАЯ ПАЛИТРА И БАЗОВЫЕ НАСТРОЙКИ)
    =========================================================== */
    :root {
-    --color-background-main: #f8f9fb;
-    --color-background-item: #ffffff;
-    --color-background-tabs: #ffffff;
-  
-    --color-gray-01: #e1e1e1;
-    --color-gray-02: #d3d3d3;
-    --color-gray-03: #c0c0c0;
-    --color-gray-06: #808080;
-    --color-gray-08: #474747;
-  
-    --color-header: #000000;
-  
-    --border-radius-button: 4px;
-    --border-radius-elements: 8px;
-  
-    --ion-color-primary: #9d6606;       /* основной тёплый кофейный */
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-shade: #8a5a05;
-    --ion-color-primary-tint: #a7751f;
-  
-    --ion-color-secondary: #583208;     /* более тёмный кофейный */
-    --ion-color-secondary-contrast: #ffffff;
-    --ion-color-secondary-shade: #4d2c07;
-    --ion-color-secondary-tint: #694721;
-  
-    --ion-color-success: #85db14;
-    --ion-color-warning: #ead810;
-    --ion-color-danger: #eb0c0c;
-  
+
+    /* Базовые цвета */
+    --bg-main: #f8f9fb; 
+    --bg-surface: #ffffff;
+    --bg-muted: #f1f2f4;
+
+    --text-main: #1f1f1f;
+    --text-soft: #9ca3af;
+
+    /* Акцентные цвета */
+    --accent: #9d6606; /* основной тёплый кофейный */
+    --accent-hover: #8a5a05;
+    --accent-soft: #a7751f;
+
+    --accent-dark: #583208;  /* более тёмный кофейный */
+    --accent-dark-hover: #4d2c07;
+
+    /* UI */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
     --btn-padding: 0.8rem 1.6rem;
-    --anim-duration: 0.8s;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+
+    --anim-fast: 0.15s;
+    --anim-base: 0.3s;
   }
   
   /* СБРОС И ОБЩИЕ СТИЛИ */
@@ -50,8 +47,8 @@
   
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--color-background-main);
-    color: #2e2e2e;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -67,7 +64,7 @@
     font-size: 2rem;
     font-weight: 500;
     text-align: center;
-    color: var(--ion-color-secondary);
+    color: var(--accent-dark);
     margin-bottom: 1rem;
   }
   
@@ -85,14 +82,14 @@
   
   .animate-fade-in {
     opacity: 0;
-    animation: fadeInUp var(--anim-duration) ease-out forwards;
+    animation: fadeInUp var(--anim-base) ease-out forwards;
   }
   
   /* ===========================================================
      HEADER (ЛИПКОЕ МЕНЮ)
      =========================================================== */
   .header {
-    background: linear-gradient(90deg, var(--ion-color-secondary), var(--ion-color-primary));
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent));
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -179,7 +176,7 @@
      =========================================================== */
   .hero {
     position: relative;
-    background-color: var(--color-background-main);
+    background-color: var(--bg-main);
     padding: 8rem 0 10rem 0;
     overflow: hidden;
   }
@@ -202,29 +199,29 @@
   .hero__title {
     font-size: 2.75rem;
     font-weight: 700;
-    color: var(--ion-color-secondary);
+    color: var(--accent-dark);
     margin-bottom: 1rem;
   }
   
   .hero__subtitle {
     font-size: 1.15rem;
-    color: #4d4d4d;
+    color: var(--text-soft);
     margin-bottom: 2rem;
   }
   
   .hero__btn {
     display: inline-block;
-    background-color: var(--ion-color-primary);
-    color: var(--ion-color-primary-contrast);
+    background-color: var(--accent);
+    color: #fff;
     padding: var(--btn-padding);
-    border-radius: var(--border-radius-button);
+    border-radius: var(--radius-sm);
     font-weight: 500;
     text-decoration: none;
     transition: background 0.3s, transform 0.3s;
   }
   
   .hero__btn:hover {
-    background-color: var(--ion-color-primary-shade);
+    background-color: var(--accent-hover);
     transform: translateY(-2px);
   }
   
@@ -237,7 +234,7 @@
   .hero__img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--border-radius-elements);
+    border-radius: var(--radius-md);
     transition: transform 0.3s;
   }
   
@@ -262,7 +259,7 @@
      О ПРИЛОЖЕНИИ
      =========================================================== */
   .about {
-    background-color: var(--color-background-tabs);
+    background-color: var(--bg-surface);
     padding: 4rem 0;
   }
   
@@ -282,10 +279,12 @@
   .about__lead {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: var(--color-gray-08);
+    color: var(--text-main);
   }
   
-  .about__features-list {
+/* TODO не выжу код в HTML, разобраться к чему стили */
+
+  .about__features-list { 
     list-style: none;
     margin-top: 1rem;
     display: grid;
@@ -301,33 +300,33 @@
   .about__icon {
     font-size: 2rem;
     flex-shrink: 0;
-    color: var(--ion-color-primary);
+    color: var(--accent);
   }
   
   .about__feature-title {
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 0.25rem;
-    color: var(--ion-color-secondary-shade);
+    color: var(--accent-dark-hover);
   }
   
   .about__features-list p {
     font-size: 0.95rem;
-    color: var(--color-gray-06);
+    color: var(--text-soft);
     line-height: 1.4;
   }
   
   .about__why {
     margin-top: 1.5rem;
     font-size: 0.95rem;
-    color: var(--color-gray-08);
+    color: var(--text-main);
     line-height: 1.4;
   }
   
   .about__footer {
     margin-top: 1.5rem;
     font-size: 0.9rem;
-    color: var(--color-gray-06);
+    color: var(--text-soft);
     line-height: 1.4;
     font-style: italic;
   }
@@ -341,14 +340,14 @@
   .about__img {
     max-width: 80%;
     height: auto;
-    border-radius: var(--border-radius-elements);
+    border-radius: var(--radius-md);
   }
   
   /* ===========================================================
      ВОЗМОЖНОСТИ
      =========================================================== */
   .features {
-    background-color: var(--color-background-main);
+    background-color: var(--bg-main);
     padding: 4rem 0;
   }
   
@@ -360,8 +359,8 @@
   }
   
   .feature-card {
-    background-color: var(--color-background-item);
-    border-radius: var(--border-radius-elements);
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
     padding: 2rem 1.5rem;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -376,18 +375,18 @@
   .feature-card__icon {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--ion-color-primary);
+    color: var(--accent);
   }
   
   .feature-card__title {
     font-size: 1.25rem;
-    color: var(--ion-color-secondary);
+    color: var(--accent-dark);
     margin-bottom: 0.5rem;
   }
   
   .feature-card__desc {
     font-size: 0.95rem;
-    color: var(--color-gray-06);
+    color: var(--text-soft);
     line-height: 1.4;
   }
   
@@ -395,7 +394,7 @@
      ОТЗЫВЫ
      =========================================================== */
   .testimonials {
-    background-color: var(--color-background-tabs);
+    background-color: var(--bg-surface);
     padding: 4rem 0;
   }
   
@@ -407,8 +406,8 @@
   }
   
   .testimonial-card {
-    background-color: var(--color-background-item);
-    border-radius: var(--border-radius-elements);
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s;
@@ -420,14 +419,14 @@
   
   .testimonial-card__text {
     font-size: 0.95rem;
-    color: var(--color-gray-08);
+    color: var(--text-main);
     margin-bottom: 1rem;
     line-height: 1.4;
   }
   
   .testimonial-card__author {
     font-size: 0.9rem;
-    color: var(--ion-color-secondary-shade);
+    color: var(--accent-dark-hover);
     font-weight: 500;
     text-align: right;
   }
@@ -436,7 +435,7 @@
      СКАЧАТЬ
      =========================================================== */
   .download {
-    background: linear-gradient(90deg, var(--ion-color-primary), var(--ion-color-secondary));
+    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
     color: #ffffff;
     padding: 4rem 0;
   }
@@ -484,7 +483,7 @@
     content: '☑';
     position: absolute;
     left: 0;
-    color: var(--ion-color-warning);
+    color: #ead810;
     font-weight: 700;
   }
   
@@ -498,7 +497,7 @@
     display: inline-block;
     font-weight: 500;
     border: none;
-    border-radius: var(--border-radius-button);
+    border-radius: var(--radius-sm);
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
@@ -506,24 +505,24 @@
   }
   
   .btn--primary {
-    background-color: var(--ion-color-primary);
-    color: var(--ion-color-primary-contrast);
+    background-color: var(--accent);
+    color: #fff;
     padding: var(--btn-padding);
   }
   
   .btn--primary:hover {
-    background-color: var(--ion-color-primary-shade);
+    background-color: var(--accent-hover);
     transform: translateY(-2px);
   }
   
   .btn--secondary {
-    background-color: var(--ion-color-secondary);
-    color: var(--ion-color-secondary-contrast);
+    background-color: var(--accent-dark);
+    color: #fff;
     padding: var(--btn-padding);
   }
   
   .btn--secondary:hover {
-    background-color: var(--ion-color-secondary-shade);
+    background-color: var(--accent-dark-hover);
     transform: translateY(-2px);
   }
   
@@ -536,7 +535,7 @@
   .download__img {
     max-width: 80%;
     height: auto;
-    border-radius: var(--border-radius-elements);
+    border-radius: var(--radius-md);
   }
 
   .policy__list {
@@ -547,7 +546,7 @@
      FOOTER
      =========================================================== */
   .footer {
-    background-color: var(--color-gray-02);
+    background-color: var(--bg-muted);
     padding: 2rem 0;
   }
   
@@ -560,7 +559,7 @@
   }
   
   .footer__copyright {
-    color: var(--color-gray-08);
+    color: var(--text-main);
     font-size: 0.9rem;
   }
   
@@ -570,14 +569,14 @@
   }
   
   .footer__link {
-    color: var(--color-gray-06);
+    color: var(--text-soft);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s;
   }
   
   .footer__link:hover {
-    color: var(--ion-color-secondary);
+    color: var(--accent-dark);
   }
   
   /* ===========================================================
@@ -608,7 +607,7 @@
       top: 100%;
       left: 0;
       right: 0;
-      background-color: var(--ion-color-secondary);
+      background-color: var(--accent-dark);
       flex-direction: column;
       align-items: center;
       gap: 1rem;
