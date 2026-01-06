@@ -78,11 +78,11 @@
   
   /* АНИМАЦИЯ ПРИ ЯВКЕ ЭЛЕМЕНТОВ */
   @keyframes fadeInUp {
-    0% {
+    from {
       opacity: 0;
       transform: translateY(20px);
     }
-    100% {
+    to {
       opacity: 1;
       transform: translateY(0);
     }
@@ -102,7 +102,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
   }
   
   .header__inner {
@@ -140,7 +140,7 @@
     font-weight: 500;
     position: relative;
     padding: 0.25rem 0;
-    transition: color 0.3s;
+    transition: color var(--anim-base);
   }
   
   .nav__link::after {
@@ -151,7 +151,7 @@
     width: 0;
     height: 2px;
     background: #ffffff;
-    transition: width 0.3s;
+    transition: width var(--anim-base);
   }
   
   .nav__link:hover {
@@ -218,19 +218,13 @@
   }
   
   .hero__btn {
-    display: inline-block;
     background-color: var(--accent);
     color: #fff;
     padding: var(--btn-padding);
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.3s, transform 0.3s;
   }
   
   .hero__btn:hover {
     background-color: var(--accent-hover);
-    transform: translateY(-2px);
   }
   
   .hero__image {
@@ -243,7 +237,7 @@
     max-width: 100%;
     height: auto;
     border-radius: var(--radius-md);
-    transition: transform 0.3s;
+    transition: transform var(--anim-base);
   }
   
   .hero__img:hover {
@@ -369,14 +363,15 @@
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
     padding: 2rem 1.5rem;
+    height: 100%;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
   }
   
   .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
   
   .feature-card__icon {
@@ -416,12 +411,13 @@
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
     padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--anim-fast);
   }
   
   .testimonial-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
   
   .testimonial-card__text {
@@ -508,29 +504,28 @@
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
-    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+    transition: background-color var(--anim-fast), transform var(--anim-fast), box-shadow var(--anim-fast);
   }
-  
-  .btn--primary {
-    background-color: var(--accent);
-    color: #fff;
-    padding: var(--btn-padding);
-  }
-  
-  .btn--primary:hover {
-    background-color: var(--accent-hover);
+
+  .btn:hover {
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
   
-  .btn--secondary {
+  .download__btn {
     background-color: var(--accent-dark);
     color: #fff;
     padding: var(--btn-padding);
   }
   
-  .btn--secondary:hover {
+  .download__btn:hover {
     background-color: var(--accent-dark-hover);
-    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: none;
   }
   
   .download__image {
@@ -579,7 +574,7 @@
     color: var(--text-soft);
     text-decoration: none;
     font-size: var(--text-xs);
-    transition: color 0.3s;
+    transition: color var(--anim-base);
   }
   
   .footer__link:hover {
