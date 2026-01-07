@@ -9,7 +9,7 @@
     --bg-muted: #f1f2f4;
 
     --text-main: #1f1f1f;
-    --text-soft: #9ca3af;
+    --text-soft: #6b7280;
 
     /* Акцентные цвета */
     --accent: #9d6606; /* основной тёплый кофейный */
@@ -20,8 +20,8 @@
     --accent-dark-hover: #4d2c07;
 
     /* UI */
-    --radius-sm: 6px;
-    --radius-md: 10px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
 
     --btn-padding: 0.8rem 1.6rem;
 
@@ -32,6 +32,8 @@
     --anim-base: 0.3s;
 
     /* Текст */
+    --font-base: 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Manrope', system-ui, -apple-system, sans-serif;
     --text-xs: clamp(0.85rem, 1.1vw, 0.9rem);
     --text-sm: clamp(0.9rem, 1.2vw, 1rem);
     --text-md: clamp(1rem, 1.5vw, 1.15rem);
@@ -53,7 +55,7 @@
   }
   
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-base);
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
@@ -69,8 +71,10 @@
   }
   
   .section-title {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
     font-size: var(--text-lg);
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     color: var(--accent-dark);
     margin-bottom: 1rem;
@@ -205,6 +209,8 @@
   }
   
   .hero__title {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
     font-size: var(--text-xl);
     font-weight: 700;
     color: var(--accent-dark);
@@ -284,20 +290,6 @@
     color: var(--text-main);
   }
   
-/* нет в HTML 
-  .about__features-list { 
-    list-style: none;
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .about__features-list li {
-    display: flex;
-    gap: 1rem;
-  } */
-
   .about__icon {
     font-size: 2rem;
     flex-shrink: 0;
@@ -310,12 +302,6 @@
     margin-bottom: 0.25rem;
     color: var(--accent-dark-hover);
   }
-  /* нет в HTML 
-  .about__features-list p {
-    font-size: var(--text-xs)
-    color: var(--text-soft);
-    line-height: 1.4;
-  } */
   
   .about__why {
     margin-top: 1.5rem;
@@ -349,7 +335,7 @@
      =========================================================== */
   .features {
     background-color: var(--bg-main);
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
   
   .features__grid {
@@ -397,7 +383,7 @@
      =========================================================== */
   .testimonials {
     background-color: var(--bg-surface);
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
   
   .testimonials__grid {
@@ -415,7 +401,7 @@
     border-radius: var(--radius-md);
     padding: 1.5rem;
     box-shadow: var(--shadow-sm);
-    transition: transform var(--anim-fast);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
   }
   
   .testimonial-card:hover {
@@ -513,7 +499,7 @@
   }
 
   .btn:hover {
-    transform: translateY(-2px);
+    transform: scale(1.02);
     box-shadow: var(--shadow-md);
   }
   
@@ -542,10 +528,6 @@
     max-width: 80%;
     height: auto;
     border-radius: var(--radius-md);
-  }
-
-  .policy__list {
-    margin-left: 2rem;
   }
   
   /* ===========================================================
