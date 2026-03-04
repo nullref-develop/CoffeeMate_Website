@@ -212,6 +212,7 @@
   .hero__title {
     font-family: var(--font-heading);
     letter-spacing: -0.01em;
+    line-height: 1.25;
     font-size: var(--text-xl);
     font-weight: 700;
     color: var(--accent-dark);
@@ -236,7 +237,7 @@
   
   .hero__image {
     flex: 1;
-    min-width: 280px;
+    min-width: 480px;
     text-align: center;
   }
   
@@ -275,7 +276,7 @@
   
   .about__inner {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap-reverse;
     gap: 2rem;
