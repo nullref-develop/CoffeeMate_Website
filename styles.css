@@ -237,7 +237,7 @@
   
   .hero__image {
     flex: 1;
-    min-width: 480px;
+    min-width: 280px;
     text-align: center;
   }
   
